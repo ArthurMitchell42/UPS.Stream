@@ -13,14 +13,13 @@ The IP will depend of where the container is hosted.
 
 ![DSM Settings](https://github.com/ArthurMitchell42/UPS.tream/blob/adead57860be825315b6e682755a2546a6b8f733/dsm_ups_settings.png)
 
-![System diagram](https://github.com/ArthurMitchell42/UPS.tream/blob/4fef439787a2fcbd48db8735c0b3f5a87682b66a/diagram1.png))
+![System diagram](https://github.com/ArthurMitchell42/UPS.tream/blob/4fef439787a2fcbd48db8735c0b3f5a87682b66a/diagram1.png)
 
 ## Status
  
 You can get a container with it at [Docker Hub](https://hub.docker.com/repository/docker/kronos443/ups.tream)
 
-[^note]:
-    This code is **very pre-alpha**. Please feedback all experiences to help develop this app.
+This code is **very pre-alpha**. Please feedback all experiences to help develop this app.
 
 ## To do and ideas
 
