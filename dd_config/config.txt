@@ -1,0 +1,5 @@
+name monuser
+pass secret
+time 30
+addr 10.0.10.9
+port 3493
