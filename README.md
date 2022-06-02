@@ -25,4 +25,9 @@ This code is **very pre-alpha**. Please feedback all experiences to help develop
 
 - [ ] Wrap in a Flask app template
 
+| Feature  | Notes | T-Shirt Sizing |
+| ------------- | ------------- | ------------- |
+| Wrap with a Flask template  | Would add user loging, LDAP integration and notifications  | Large  |
+| Support for multiple UPS's  | Would make it more suited to enterprise use  | Meduim |
+
 [^1]: The [NUT project](https://networkupstools.org/)
