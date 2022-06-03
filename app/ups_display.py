@@ -460,7 +460,6 @@ def Runtime_Block(ups_vars):
     print("</div>")
     return
 
-
 #====================================================
 # Print the text dump diagnostics block
 #====================================================
@@ -528,45 +527,49 @@ def Headline_Block(ups_vars):
 
     print("<div id='src-headline'>")
     if ups_vars["ups.status"].find("OL") != -1:
-        print('<i class="fa-solid fa-plug-circle-bolt h1 text-success"></i>&nbsp')
+        print('<i class="fa-solid fa-plug-circle-bolt h1 text-success pe-1"></i>')
         nInfo_Flag = nInfo_Flag + 1
         Info_Text_List.append("<span class='text-success'>Power supply good</span>")
     elif ups_vars["ups.status"].find("OB") != -1:
-        print('<i class="fa-solid fa-plug-circle-xmark h1 text-danger"></i>&nbsp')
+        print('<i class="fa-solid fa-plug-circle-xmark h1 text-danger pe-1"></i>')
         nAlert_Flag = nAlert_Flag + 1
         Info_Text_List.append("<span class='text-danger'>Power supply failed</span>")
     else:
-        print('<i class="fa-solid fa-plug-circle-exclamation h1 text-warning"></i>&nbsp')
+        print('<i class="fa-solid fa-plug-circle-exclamation h1 text-warning pe-1"></i>')
         nWarn_Flag = nWarn_Flag + 1
         Info_Text_List.append("<span class='text-warning'>Power supply state unknown</span>")
 
     if float(ups_vars["battery.charge"]) < float(ups_vars["battery.charge.low"]):
-        print('<i class="fa-solid fa-battery-empty h1 text-success"></i>')
+        print('<i class="fa-solid fa-battery-empty h1 text-success pe-1"></i>')
         nAlert_Flag = nAlert_Flag + 1
         Info_Text_List.append("<span class='text-danger'>Battery level critical</span>")
     elif float(ups_vars["battery.charge"]) < float(ups_vars["battery.charge.warning"]):
-        print('<i class="fa-solid fa-battery-quarter h1 text-warning"></i>')
+        print('<i class="fa-solid fa-battery-quarter h1 text-warning pe-1"></i>')
         nAlert_Flag = nAlert_Flag + 1
         Info_Text_List.append("<span class='text-danger'>Battery significantly discharged</span>")
     elif float(ups_vars["battery.charge"]) < 50:
-        print('<i class="fa-solid fa-battery-half h1 text-warning"></i>')
+        print('<i class="fa-solid fa-battery-half h1 text-warning pe-1"></i>')
         nWarn_Flag = nWarn_Flag + 1
         Info_Text_List.append("<span class='text-warning'>Battery partly discharged</span>")
     elif float(ups_vars["battery.charge"]) < 80:
-        print('<i class="fa-solid fa-battery-three-quarters h1 text-success"></i>')
+        print('<i class="fa-solid fa-battery-three-quarters h1 text-success pe-1"></i>')
         nWarn_Flag = nWarn_Flag + 1
         Info_Text_List.append("<span class='text-warning'>Battery partly discharged</span>")
     else:
-        print('<i class="fa-solid fa-battery-full h1 text-success"></i>')
+        print('<i class="fa-solid fa-battery-full h1 text-success pe-1"></i>')
 
     if ups_vars["ups.beeper.status"].lower() == 'enabled':
-        print('<span class="fa-stack h5">')
-        print('<i class="fa-solid fa-bell fa-stack-1x" ></i>')      
-        print('</span>')
+        # print('<span class="fa-stack h5">')
+        # print('<i class="fa-solid fa-bell fa-stack-1x" ></i>')      
+        # print('</span>')
+        print('<i class="fa-solid fa-volume-high h1 text-success pe-1"></i>')
     else:
-        print('<span class="fa-stack h5">')
-        print('<i class="fa-solid fa-bell fa-stack-1x" ></i><i class="fa-solid fa-ban fa-stack-2x" style="color:Tomato"></i>')      
-        print('</span>')
+        # print('<span class="fa-stack h5">')
+        # print('<i class="fa-solid fa-bell fa-stack-1x" ></i><i class="fa-solid fa-ban fa-stack-2x" style="color:Tomato"></i>')      
+        # print('</span>')
+        print('<i class="fa-solid fa-volume-xmark h1 text-warning pe-1"></i>')
+        nWarn_Flag = nWarn_Flag + 1
+        Info_Text_List.append("<span class='text-warning'>Alarm is muted</span>")
 
     print("</div>")
     return
@@ -577,9 +580,11 @@ def Headline_Block(ups_vars):
 def Topbar_Status_Block(ups_vars):
     print("<div id='src-topbar-status'>")
     if ups_vars["ups.status"].find("OL") != -1:
-        print('<i class="fa-solid fa-plug-circle-bolt text-success"></i>')
+        # print('<i class="fa-solid fa-plug-circle-bolt text-success"></i>')
+        print('<i class="bi bi-plugin text-success"></i>')
     else:
-        print('<i class="fa-solid fa-plug-circle-xmark text-danger"></i>')
+        # print('<i class="fa-solid fa-plug-circle-xmark text-danger"></i>')
+        print('<i class="bi bi-plugin text-danger"></i>')
     print("</div>")
     return
 
@@ -600,17 +605,22 @@ def main():
             for line in f:
                 fields = line.strip().split()
                 if fields[0] == 'name':
-                    username = fields[1]
+                    if len(fields) > 1:
+                        username = fields[1]
                 elif fields[0] == 'pass':
-                    password = fields[1]
+                    if len(fields) > 1:
+                        password = fields[1]
                 elif fields[0] == 'addr':
-                    server_address = fields[1]
+                    if len(fields) > 1:
+                        server_address = fields[1]
                 elif fields[0] == 'port':
-                    server_port = int(fields[1])
+                    if len(fields) > 1:
+                        server_port = int(fields[1])
                 elif fields[0] == 'time':
-                    interval = int(fields[1])
+                    if len(fields) > 1:
+                        interval = int(fields[1])
 
-    client = PyNUTClient( host=server_address, login=username, password=password )
+    client = PyNUTClient( host=server_address, port=server_port, login=username, password=password )
     ups_vars = client.list_vars("ups")
 
     Diag_Block(ups_vars)

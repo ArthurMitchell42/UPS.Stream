@@ -5,7 +5,7 @@ FROM ubuntu/apache2:latest
 #LABEL maintainer="kronos443@mitchell.click"
 
 # Define a Docker build version
-ENV DOCKER_BUILD_VERSION=V0.0.1
+ENV DOCKER_BUILD_VERSION=V0.0.2
 
 # Install needed apps
 RUN apt-get update
@@ -44,6 +44,7 @@ RUN mv ./ups_display.py /var/www/cgi-bin
 
 RUN mv ./graphics /var/www/html
 RUN mv ./bootstrap /var/www/html
+RUN mv ./bootstrap-icons /var/www/html
 RUN mv ./fontawesome /var/www/html
 RUN mv ./jquery /var/www/html
 

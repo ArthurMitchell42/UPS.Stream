@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="./fontawesome/css/all.css">
-    <!-- <link rel="stylesheet" type="text/css" href="./bootstrap-icons/bootstrap-icons.css"> -->
+    <link rel="stylesheet" type="text/css" href="./bootstrap-icons/bootstrap-icons.css">
 
     <title>UPS Information</title>
     <style>
@@ -63,27 +63,28 @@
       <span class="pe-1">
         <a href="#"><i class="bi-house px-0 header-icons"></i></a>
       </span>        
-      <span class="" id="dst-topbar-status">
-        <i class="fa-solid fa-plug-circle-bolt"></i>
-      </span>        
       <span class="">
-        <a href="#"><i class="bi-sun px-0 header-icons"></i></a>
+        <a href="#"><i class="bi-sun pe-1 header-icons"></i></a>
       </span>        
-      <span class="ps-1 pe-2" id="dst-badge-info">
+      <span class="" id="dst-topbar-status">
+        <!-- <i class="fa-solid fa-plug-circle-bolt"></i> -->
+        <i class="bi bi-plugin"></i>
+      </span>        
+      <span class="ps-1 pe-1" id="dst-badge-info">
         <i class="bi-info-circle position-relative header-icons">
         <span class="d-none position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success header-icon-pill">
          0
         </span>
         </i>
       </span>        
-      <span class="ps-1 pe-2" id="dst-badge-warn">
+      <span class="ps-1 pe-1" id="dst-badge-warn">
         <i class="bi-exclamation-triangle position-relative header-icons">
         <span class="d-none position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning header-icon-pill" style="color: black;">
           0
         </span>
         </i>
       </span>        
-      <span class="ps-1 pe-2" id="dst-badge-alert">
+      <span class="ps-1 pe-1" id="dst-badge-alert">
         <i class="bi-bell position-relative header-icons">
       <span class="d-none position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger header-icon-pill">
         0
@@ -107,9 +108,10 @@
         </div>
     <!-- align-self-center -->
     <div class="col-4 d-flex justify-content-end" id="dst-headline"> 
-        <i class="fa-solid fa-plug-circle-exclamation h1 text-muted"></i>&nbsp 
-        <i class="fa-solid fa-battery-empty h1 text-muted"></i>&nbsp
-        <i class="fa-solid fa-bell h1 text-muted"></i>
+        <i class="fa-solid fa-plug-circle-exclamation h1 text-muted pe-1"></i> 
+        <i class="fa-solid fa-battery-empty h1 text-muted pe-1"></i>
+        <!-- <i class="fa-solid fa-bell h1 text-muted"></i> -->
+        <i class="fa-solid fa-volume-off h1 text-muted pe-1"></i>
     </div>
 </div>
 </div>
